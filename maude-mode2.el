@@ -46,8 +46,18 @@
 ;; For documentation on the functionality provided by comint mode, and
 ;; the hooks available for customising it, see the file `comint.el'.
 (require 'comint)
-(setq maude-cmd "/local/bin/maude")
 (require 'derived)
+
+
+;; Customize support for Maude-mode.
+(defgroup maude nil "Major mode for editing Maude code."
+  :prefix "maude-"
+  :group 'languages)
+
+(defcustom maude-cmd "maude"
+  "Default executable to run in Maude subprocess"
+  :type 'string :group 'maude )
+;; end Customize support
 
 
 (defun copy-current-buffer-to-maude ()
