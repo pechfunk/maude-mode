@@ -126,7 +126,7 @@
   (save-buffer)
   (setq maude-buffer (make-comint "Maude" maude-cmd ))
   ;; in 99% you don't wanna know...
-  (comint-send-string "Maude" "set show timing off .\n")  
+  (comint-send-string maude-buffer "set show timing off .\n")  
   (switch-to-buffer-other-window maude-buffer)
   (maude-running-mode)
   (other-window -1)
@@ -138,7 +138,7 @@
   (comint-send-string "Maude" 
 		      (concat "in " (file-name-directory maude-cmd) 
 			      "full-maude.maude\n"))
-  (comint-send-string "Maude" "loop init .\n")
+  (comint-send-string maude-buffer "loop init .\n")
   (switch-to-buffer-other-window maude-buffer)
   (other-window -1)
 	)
